@@ -197,13 +197,11 @@ The app will start at http://localhost:5173 (or next available port).
 
 ## 🎬 Demo Video
 
-Watch a short demo of the application below. (Hosted in this repository at `frontend/public/demo.mp4`.)
+Watch a short demo of the application:
 
-<video controls width="720">
-   <source src="https://raw.githubusercontent.com/faizanshoukat5/TeamDirectory-MED49Solutions.Inc./main/frontend/public/demo.mp4" type="video/mp4">
-   Your browser does not support the video tag — you can download the file instead: [demo.mp4](frontend/public/demo.mp4)
-</video>
+https://github.com/user-attachments/assets/1cc42ef2-57bb-4eca-b069-e983c13a44fe
 
+---
 
 ## ✨ Features
 
