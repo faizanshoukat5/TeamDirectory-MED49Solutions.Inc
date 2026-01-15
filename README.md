@@ -227,7 +227,7 @@ The app will start at http://localhost:5173 (or next available port).
 
 ---
 
-## 📹 Demo Video 
+## 📹 Demo Video : https://app.clipchamp.com/consumer/editor?driveId=5C6C4BD9A71BEF9C&folderId=5C6C4BD9A71BEF9C!s96e17431d4734540be8c5e274b32ed80&itemId=5C6C4BD9A71BEF9C!s72b8b74d0b2e4d40bbb0d57dddf7888c
 ---
 
 ## 🧰 Tech Stack
