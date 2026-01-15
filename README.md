@@ -241,10 +241,4 @@ See [DEMO_SCRIPT.md](DEMO_SCRIPT.md) for a 2-minute video outline covering:
 
 - **Backend:** ColdFusion 2025, SQL Server Express
 - **Frontend:** React 18, Vite 5
-- **Styling:** Custom CSS (no frameworks)
-
----
-
-## 📄 License
-
-This project was created as a take-home technical assessment.
+- **Styling:** Custom CSS 
