@@ -11,6 +11,7 @@ A full-stack take-home project demonstrating a ColdFusion REST API connected to 
 ```
 MED49/
 ├── README.md                          # This file
+├── DEMO_SCRIPT.md                     # 2-minute video script outline
 ├── backend/
 │   ├── Application.cfc                # ColdFusion app config + CORS handling
 │   ├── api/
@@ -194,6 +195,16 @@ The app will start at http://localhost:5173 (or next available port).
 
 ---
 
+## 🎬 Demo Video
+
+Watch a short demo of the application below. (Hosted in this repository at `frontend/public/demo.mp4`.)
+
+<video controls width="720">
+   <source src="https://raw.githubusercontent.com/faizanshoukat5/TeamDirectory-MED49Solutions.Inc./main/frontend/public/demo.mp4" type="video/mp4">
+   Your browser does not support the video tag — you can download the file instead: [demo.mp4](frontend/public/demo.mp4)
+</video>
+
+
 ## ✨ Features
 
 | Feature | Description |
@@ -226,11 +237,18 @@ The app will start at http://localhost:5173 (or next available port).
 
 ---
 
-## 📹 Demo Video : https://1drv.ms/v/c/5c6c4bd9a71bef9c/IQDmaga9KqWlSKOSqCOMTGkEAeWuKuRD0WAF7rl-LEMFgl8?e=V6UFnp
+## 📹 Demo Video Script
+
+See [DEMO_SCRIPT.md](DEMO_SCRIPT.md) for a 2-minute video outline covering:
+- Project overview
+- Backend structure and API
+- Frontend components
+- Search feature demonstration
+
 ---
 
 ## 🧰 Tech Stack
 
 - **Backend:** ColdFusion 2025, SQL Server Express
 - **Frontend:** React 18, Vite 5
-- **Styling:** Custom CSS 
+- **Styling:** Custom CSS
