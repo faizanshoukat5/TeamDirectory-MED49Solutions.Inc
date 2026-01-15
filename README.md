@@ -11,7 +11,6 @@ A full-stack take-home project demonstrating a ColdFusion REST API connected to 
 ```
 MED49/
 ├── README.md                          # This file
-├── DEMO_SCRIPT.md                     # 2-minute video script outline
 ├── backend/
 │   ├── Application.cfc                # ColdFusion app config + CORS handling
 │   ├── api/
