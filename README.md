@@ -227,14 +227,7 @@ The app will start at http://localhost:5173 (or next available port).
 
 ---
 
-## 📹 Demo Video Script
-
-See [DEMO_SCRIPT.md](DEMO_SCRIPT.md) for a 2-minute video outline covering:
-- Project overview
-- Backend structure and API
-- Frontend components
-- Search feature demonstration
-
+## 📹 Demo Video 
 ---
 
 ## 🧰 Tech Stack
