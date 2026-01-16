@@ -11,7 +11,6 @@ A full-stack take-home project demonstrating a ColdFusion REST API connected to 
 ```
 MED49/
 ├── README.md                          # This file
-├── DEMO_SCRIPT.md                     # 2-minute video script outline
 ├── backend/
 │   ├── Application.cfc                # ColdFusion app config + CORS handling
 │   ├── api/
@@ -235,9 +234,8 @@ https://github.com/user-attachments/assets/1cc42ef2-57bb-4eca-b069-e983c13a44fe
 
 ---
 
-## 📹 Demo Video Script
+## 📹 Demo Video 
 
-See [DEMO_SCRIPT.md](DEMO_SCRIPT.md) for a 2-minute video outline covering:
 - Project overview
 - Backend structure and API
 - Frontend components
