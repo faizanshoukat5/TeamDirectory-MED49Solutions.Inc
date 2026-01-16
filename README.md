@@ -196,6 +196,13 @@ The app will start at http://localhost:5173 (or next available port).
 
 ## 🎬 Demo Video
 
+- Project overview
+- Backend structure and API
+- Frontend components
+- Search feature demonstration
+
+---
+
 Watch a short demo of the application:
 
 https://github.com/user-attachments/assets/1cc42ef2-57bb-4eca-b069-e983c13a44fe
@@ -231,15 +238,6 @@ https://github.com/user-attachments/assets/1cc42ef2-57bb-4eca-b069-e983c13a44fe
 ### "No employees found"
 - Verify the API returns data: test the endpoint directly in browser
 - Check browser console for fetch errors
-
----
-
-## 📹 Demo Video 
-
-- Project overview
-- Backend structure and API
-- Frontend components
-- Search feature demonstration
 
 ---
 
