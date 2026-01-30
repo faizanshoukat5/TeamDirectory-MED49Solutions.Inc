@@ -246,3 +246,22 @@ https://github.com/user-attachments/assets/1cc42ef2-57bb-4eca-b069-e983c13a44fe
 - **Backend:** ColdFusion 2025, SQL Server Express
 - **Frontend:** React 18, Vite 5
 - **Styling:** Custom CSS
+
+---
+
+## 📌 Recent changes (developer notes)
+
+- **New backend endpoints:**
+  - `GET /backend/api/TeamService.cfc?method=getEmployees&returnformat=json` (returns all employees)
+  - `GET /backend/api/TeamService.cfc?method=getEmployee&id={id}&returnformat=json` (single employee by ID)
+  - `POST /backend/api/TeamService.cfc?method=createEmployee&returnformat=json` (creates an employee; accepts `application/x-www-form-urlencoded` or JSON in the request body)
+- **CORS:** `Application.cfc` updated to allow `POST` in `Access-Control-Allow-Methods` and includes common CORS headers for direct CFC method calls.
+- **Frontend:** Added an **Add Employee** UI:
+  - Compact add button in the header and a floating action button (FAB) in the lower-right for quick access
+  - Slide-over panel with `EmployeeForm` for creating employees (placeholders, autofocus, inline success and error states)
+  - Toast notifications and automatic refresh after creating a record
+- **Notes:**
+  - The REST route (`/backend/api/team/employees`) was not registered as a REST mapping in the CF server and may return `404` on some setups; direct CFC calls (method queries) are available and include CORS headers in this repo's configuration.
+  - If you prefer true REST paths, enable REST mappings in ColdFusion Administrator or call `onApplicationStart()` to register REST CFCs.
+
+---

@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import EmployeeCard from "./components/EmployeeCard.jsx";
 import EmployeeTable from "./components/EmployeeTable.jsx";
+import EmployeeForm from "./components/EmployeeForm.jsx";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8500/backend/api/TeamService.cfc?method=getEmployees&returnformat=json";
+const CREATE_URL = "http://localhost:8500/backend/api/TeamService.cfc?method=createEmployee&returnformat=json"; // direct CFC POST endpoint
 const ITEMS_PER_PAGE = 9;
 
 function App() {
@@ -13,36 +15,31 @@ function App() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [viewMode, setViewMode] = useState("cards"); // "cards" or "table"
 
+  const loadEmployees = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(API_URL, { method: "GET" });
+
+      if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+
+      const payload = await response.json();
+      if (!payload.success) throw new Error("API returned an error.");
+
+      setEmployees(payload.data || []);
+    } catch (err) {
+      setError(err.message || "Unable to load employees.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const loadEmployees = async () => {
-      setLoading(true);
-      setError("");
-
-      try {
-        const response = await fetch(API_URL, {
-          method: "GET"
-        });
-
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`);
-        }
-
-        const payload = await response.json();
-
-        if (!payload.success) {
-          throw new Error("API returned an error.");
-        }
-
-        setEmployees(payload.data || []);
-      } catch (err) {
-        setError(err.message || "Unable to load employees.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
     loadEmployees();
   }, []);
+
+  const [showForm, setShowForm] = useState(false);
 
   // Reset visible count when search changes
   useEffect(() => {
@@ -76,6 +73,20 @@ function App() {
     setVisibleCount(filteredEmployees.length);
   };
 
+  const [toast, setToast] = useState('');
+
+  // auto-dismiss toast
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(''), 3500);
+    return () => clearTimeout(t);
+  }, [toast]);
+
+  // helper to set toast and optionally refresh list
+  const showToast = (message) => {
+    setToast(message);
+  };
+
   return (
     <div className="page">
       <header className="header">
@@ -84,6 +95,15 @@ function App() {
             <h1>Team Directory</h1>
             <p>Meet our amazing team members and discover their roles</p>
           </div>
+
+          {showForm && (
+            <div className="form-overlay" role="dialog" aria-modal="true">
+              <div className="form-panel">
+                <button className="form-close" onClick={() => setShowForm(false)} aria-label="Close">×</button>
+                <EmployeeForm onCreated={async () => { setShowForm(false); await loadEmployees(); showToast('Employee created successfully'); }} createUrl={CREATE_URL} />
+              </div>
+            </div>
+          )}
           <div className="search">
             <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
@@ -95,6 +115,15 @@ function App() {
               value={search}
               onChange={(event) => setSearch(event.target.value)}
             />
+          </div>
+          <div className="header-actions">
+            <button className="btn btn-primary btn-sm" onClick={() => setShowForm(true)} title="Add Employee">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 5v14"></path>
+                <path d="M5 12h14"></path>
+              </svg>
+              <span className="btn-label">Add Employee</span>
+            </button>
           </div>
         </div>
         <div className="author-badge">
@@ -193,9 +222,20 @@ function App() {
                   </button>
                 </div>
               )}
+
+              {/* Floating Add button */}
+              <button className="fab" aria-label="Add employee" onClick={() => setShowForm(true)}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 5v14"></path>
+                  <path d="M5 12h14"></path>
+                </svg>
+              </button>
             </>
           )}
         </>
+      )}
+      {toast && (
+        <div className="toast" role="status" aria-live="polite">{toast}</div>
       )}
     </div>
   );

@@ -28,7 +28,7 @@ component {
 
     private void function setupCorsHeaders() {
         cfheader(name="Access-Control-Allow-Origin", value="*");
-        cfheader(name="Access-Control-Allow-Methods", value="GET,OPTIONS");
+        cfheader(name="Access-Control-Allow-Methods", value="GET,POST,OPTIONS");
         cfheader(name="Access-Control-Allow-Headers", value="Content-Type,Authorization");
         cfheader(name="Access-Control-Max-Age", value="86400");
     }
